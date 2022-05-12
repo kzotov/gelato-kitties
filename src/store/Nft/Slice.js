@@ -6,8 +6,9 @@ const baseUrl = 'https://api.cryptokitties.co/v2/kitties/recommend';
 const initialState = {
   nfts: [],
   status: 'idle',
-  limit: 10,
+  limit: 20,
   offset: 0,
+  hasMore: true,
   error: null
 }
 
@@ -38,9 +39,13 @@ const nftsSlice = createSlice({
         if (!items) {
           return;
         }
+        
+        if (items.length < 10) {
+          state.hasMore = false;
+        }
+        state.offset += items.length;
 
         const camelCaseItems = items.map(item => _.mapKeys(item, (value, key) => _.camelCase(key)));
-        state.offset += camelCaseItems.length;
         state.nfts = state.nfts.concat(camelCaseItems);
       })
       .addCase(fetchNfts.rejected, (state, action) => {
