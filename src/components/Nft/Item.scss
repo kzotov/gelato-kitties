@@ -12,6 +12,16 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
 
+  &--is-fancy {
+    outline: 2px solid #fcf093;
+  }
+
+  &__exclusive {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
   &__summary {
     padding: 20px;
   }
@@ -33,7 +43,7 @@
 
   &__color {
     position: absolute;
-    top: 30px;
+    top: 20px;
     right: 30px;
   }
 

@@ -3,11 +3,14 @@ import { memo } from 'react';
 import UserLink, { UserLinkType } from '@components/UserLink';
 import { Typography } from '@mui/material';
 import ColorBadge from '@components/ColorBadge';
+import cn from 'classnames';
 
 const NftItem = (props) => {
   const {
     imageUrl,
     name,
+    isFancy,
+    isExclusive,
     // hatched,
     // hatcher,
     owner,
@@ -16,12 +19,21 @@ const NftItem = (props) => {
   // useEffect(() => {
   // }, [data]);
 
+  const itemClassName = cn(
+    'nft-item',
+    { 'nft-item--is-fancy': isFancy },
+  );
+
   return (
-    <div className="nft-item">
+    <div className={itemClassName}>
       <div className="nft-item__image" style={{ backgroundImage: `url(${imageUrl})` }}></div>
       <div className="nft-item__color">
         <ColorBadge color={color} />
       </div>
+
+      {isExclusive && (
+        <div class="nft-item__exclusive">🤩</div>
+      )}
 
       <div className="nft-item__summary">
         <div className="nft-item__name">

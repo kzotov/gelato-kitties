@@ -41,6 +41,7 @@ const nftsSlice = createSlice({
         }
         
         if (items.length < 10) {
+          console.log(items.length);
           state.hasMore = false;
         }
         state.offset += items.length;
