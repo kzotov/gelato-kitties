@@ -1,6 +1,5 @@
 // import { noop } from 'lodash';
 // import * as PropTypes from 'prop-types';
-import { useEffect } from 'react';
 import { fetchNfts, selectAllNfts } from '@store/Nft/Slice';
 import { useSelector, useDispatch } from 'react-redux';
 import NftItem from './Item.jsx';
@@ -15,7 +14,7 @@ const List = (props) => {
   if (status === 'idle') {
     dispatch(fetchNfts());
   }
-
+  
   return (
     <Container className="nft-list" maxWidth="xl">
       <Grid

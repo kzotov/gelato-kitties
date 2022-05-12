@@ -6,6 +6,7 @@
   border: 1px solid rgba(0,0,0,0.1);
   transition: 0.3s ease all;
   cursor: pointer;
+  position: relative;
 
   &:hover {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -20,5 +21,24 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 50%;
+  }
+
+  &__name {
+    max-width: 250px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__color {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+
+  &__owner {
+    font-size: 14px;;
+    text-align: center;
   }
 }

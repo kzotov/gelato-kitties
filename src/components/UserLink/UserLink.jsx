@@ -1,4 +1,3 @@
-import * as PropTypes from 'prop-types';
 import { memo } from 'react';
 import UserLinkType from './UserLinkType';
 
@@ -7,9 +6,7 @@ import { Link } from '@mui/material'
 const UserLink = (props) => {
   const {
     address,
-    image,
     nickname,
-    hasDapper,
   } = props;
 
   return (

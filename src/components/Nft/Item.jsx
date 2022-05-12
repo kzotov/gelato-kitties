@@ -1,37 +1,58 @@
 import * as PropTypes from 'prop-types';
-import { useEffect, memo } from 'react';
-import { selectNftById } from '@store/Nft/Slice';
-import { useSelector } from 'react-redux';
+import { memo } from 'react';
 import UserLink, { UserLinkType } from '@components/UserLink';
+import { Typography } from '@mui/material';
+import ColorBadge from '@components/ColorBadge';
 
 const NftItem = (props) => {
   const {
-    id, 
     imageUrl,
     name,
-    hatched,
-    hatcher,
+    // hatched,
+    // hatcher,
     owner,
+    color,
   } = props;
-  const data = useSelector(selectNftById(id));
-  const style = 'background-image: url()';
-  const displayName = !!name ? name : 'No name';
   // useEffect(() => {
   // }, [data]);
 
   return (
     <div className="nft-item">
-      <div className="nft-item__image" style={{backgroundImage: `url(${imageUrl})`}}></div>
+      <div className="nft-item__image" style={{ backgroundImage: `url(${imageUrl})` }}></div>
+      <div className="nft-item__color">
+        <ColorBadge color={color} />
+      </div>
+
       <div className="nft-item__summary">
-        <h1>{ name }</h1>
-        {owner && (<div>Owner: <UserLink {...owner} /></div>)}
-        {hatched && (<div>Hatched by: <UserLink {...hatcher} /></div>)}
+        <div className="nft-item__name">
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              fontWeight: 700,
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            { name }
+          </Typography>
+        </div>
+        
+        <div className="nft-item__owner">
+          by <UserLink {...owner} />
+        </div>
+
+        {/* {hatched && (<div>Hatched by: <UserLink {...hatcher} /></div>)} */}
       </div>
     </div>
   );
 };
 
 NftItem.defaultProps = {
+  color: '',
   imageUrl: null,
   isExclusive: false,
   isFancy: false,
@@ -49,6 +70,7 @@ NftItem.defaultProps = {
 };
 
 NftItem.propTypes = {
+  color: PropTypes.string,
   id: PropTypes.number.isRequired,
   imageUrl: PropTypes.string,
   isExclusive: PropTypes.bool,

@@ -1,0 +1,21 @@
+$thundergrey: #584f40;
+$sapphire: #fcf093;
+
+.color-badge {
+  border-radius: 10px;
+  display: inline;
+  padding: 2px 5px;
+  font-size: 12px;
+  background-color: rgba(0,0,0,0.1);
+
+  &--thundergrey {
+    background-color: $thundergrey;
+    color: #fff;
+  }
+
+  &--sapphire {
+    background-color: $sapphire;
+    color: #000;
+  }
+}
+
