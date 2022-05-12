@@ -7,6 +7,7 @@ import cn from 'classnames';
 
 const NftItem = (props) => {
   const {
+    id,
     imageUrl,
     name,
     isFancy,
@@ -41,7 +42,7 @@ const NftItem = (props) => {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href={`/nfts/${id}`}
             sx={{
               mr: 2,
               fontWeight: 700,

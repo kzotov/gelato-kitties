@@ -72,6 +72,7 @@ export const fetchNfts = createAsyncThunk('fetchNfts', async (params, { getState
 export const selectAllNfts = state => state.nfts.nfts;
 
 export const selectNftById = nftId => state => {
+  console.log({ nftId, state });
   return state.nfts.nfts.find(nft => nft.id === nftId)
 }
 

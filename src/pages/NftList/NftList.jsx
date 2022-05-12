@@ -3,7 +3,7 @@
 import { useCallback } from 'react';
 import { fetchNfts, selectAllNfts } from '@store/Nft/Slice';
 import { useSelector, useDispatch } from 'react-redux';
-import NftItem from './Item.jsx';
+import NftItem from '@components/NftItem';
 
 import { Container, Grid } from '@mui/material'
 import InfiniteScroll from 'react-infinite-scroll-component'
