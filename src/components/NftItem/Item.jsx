@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
 import * as PropTypes from 'prop-types';
 import { memo } from 'react';
 import UserLink, { UserLinkType } from '@components/UserLink';
 import { Typography } from '@mui/material';
 import ColorBadge from '@components/ColorBadge';
 import cn from 'classnames';
+import { Link } from 'react-router-dom';
 
 const NftItem = (props) => {
   const {
@@ -20,6 +22,7 @@ const NftItem = (props) => {
   // useEffect(() => {
   // }, [data]);
 
+  const pageUrl = `/nfts/${id}`;
   const itemClassName = cn(
     'nft-item',
     { 'nft-item--is-fancy': isFancy },
@@ -27,7 +30,12 @@ const NftItem = (props) => {
 
   return (
     <div className={itemClassName}>
-      <div className="nft-item__image" style={{ backgroundImage: `url(${imageUrl})` }}></div>
+      <div className="nft-item__image-wrapper">
+        <div className="nft-item__background" style={{ backgroundImage: `url(${imageUrl})` }}></div>
+        <div className="nft-item__image" style={{ backgroundImage: `url(${imageUrl})` }}></div>
+        <Link className="nft-item__image-link" to={pageUrl} title={name}></Link>
+      </div>
+      
       <div className="nft-item__color">
         <ColorBadge color={color} />
       </div>
@@ -42,7 +50,7 @@ const NftItem = (props) => {
             variant="h6"
             noWrap
             component="a"
-            href={`/nfts/${id}`}
+            href={pageUrl}
             sx={{
               mr: 2,
               fontWeight: 700,

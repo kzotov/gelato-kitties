@@ -36,8 +36,8 @@ const List = (props) => {
         <Grid
           container
           columns={3}
-          columnSpacing={2}
-          rowSpacing={2}
+          columnSpacing={4}
+          rowSpacing={4}
         >
           {nfts.map((props, index) => {
             const { id, ...restProps } = props;

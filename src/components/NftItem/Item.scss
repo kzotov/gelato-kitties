@@ -5,7 +5,6 @@
   border-radius: 20px;
   border: 1px solid rgba(0,0,0,0.1);
   transition: 0.3s ease all;
-  cursor: pointer;
   position: relative;
 
   &:hover {
@@ -26,11 +25,44 @@
     padding: 20px;
   }
 
-  &__image {
+  &__image-wrapper {
     height: 199px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__background {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-repeat: no-repeat;
+    background-size: 400%;
+    background-position: 50% 50%;
+    filter: blur(20px);
+    opacity: 0.3;
+  }
+
+  &__image {
+    width: 200px;
+    height: 200px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -100px 0 0 -100px;
+  }
+
+  &__image-link {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
   &__name {
