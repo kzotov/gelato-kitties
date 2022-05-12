@@ -10,7 +10,7 @@ const NftPage = ({ props }) => {
   const nft = useSelector(selectNftById(id));
 
   useEffect(() => {
-    // console.log(nft);
+    console.log(nft);
   }, [nft]);
 
   return (<>{id}</>);
