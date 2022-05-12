@@ -58,7 +58,7 @@ const NftItem = (props) => {
               textDecoration: 'none',
             }}
           >
-            { name }
+            { name || 'No name' }
           </Typography>
         </div>
         
