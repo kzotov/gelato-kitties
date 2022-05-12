@@ -42,7 +42,7 @@ const List = (props) => {
           {nfts.map((props, index) => {
             const { id, ...restProps } = props;
             return (
-              <Grid item xs={1} key={id}>
+              <Grid item xs={1} key={`${id}-${index}`}>
                 <NftItem id={id} {...restProps}/>
               </Grid>
             );

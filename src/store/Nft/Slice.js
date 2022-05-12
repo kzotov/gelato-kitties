@@ -40,8 +40,7 @@ const nftsSlice = createSlice({
           return;
         }
         
-        if (items.length < 10) {
-          console.log(items.length);
+        if (items.length < state.limit) {
           state.hasMore = false;
         }
         state.offset += items.length;
