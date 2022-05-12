@@ -12,11 +12,9 @@ const List = (props) => {
   const nfts = useSelector(selectAllNfts);
   const status = useSelector(state => state.nfts.status);
 
-  useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchNfts());
-    }
-  }, [status]);
+  if (status === 'idle') {
+    dispatch(fetchNfts());
+  }
 
   return (
     <Container className="nft-list" maxWidth="xl">
@@ -28,11 +26,9 @@ const List = (props) => {
       >
         {nfts.map((props, index) => {
           const { id, ...restProps } = props;
-          const uniqKey = `${id}-${index}`;
-
           return (
-            <Grid item xs={1}>
-              <NftItem key={uniqKey} id={id} {...restProps}/>
+            <Grid item xs={1} key={id}>
+              <NftItem id={id} {...restProps}/>
             </Grid>
           );
         })}

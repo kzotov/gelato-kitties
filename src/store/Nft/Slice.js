@@ -32,7 +32,6 @@ const nftsSlice = createSlice({
         state.status = 'loading'
       })
       .addCase(fetchNfts.fulfilled, (state, action) => {
-        console.log(action);
         const { payload: { greatValues: items } } = action;
         state.status = 'succeeded';
 

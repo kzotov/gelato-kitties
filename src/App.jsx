@@ -165,7 +165,7 @@ function App() {
         </Container>
       </AppBar>
       
-      <div class="app__content">
+      <div className="app__content">
         <Routes>
           <Route path="/" element={<List />} />
         </Routes>
